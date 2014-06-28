@@ -58,7 +58,7 @@
         
         AFHTTPSessionManager * manager = [AFHTTPSessionManager manager];
         
-        [manager GET:[NSString stringWithFormat:@"%@/login/token", _env] parameters:nil success:^(NSURLSessionDataTask *task, id responseObject) {
+        [manager GET:[NSString stringWithFormat:@"%@/token/authenticate", _env] parameters:nil success:^(NSURLSessionDataTask *task, id responseObject) {
             
             NSDictionary *jsonObject = responseObject;
             

@@ -44,7 +44,7 @@
 
 - (IBAction)registerAction:(id)sender
 {
-    if (![self.usernameTextField.text isEqualToString:@""] && ![self.passwordTextField.text isEqualToString:@""] && ![self.emailTextField.text isEqualToString:@""])
+    if (![self.usernameTextField.text isEqualToString:@""] && ![self.passwordTextField.text isEqualToString:@""] && ![self.emailTextField.text isEqualToString:@""] && [self validateEmail:self.emailTextField.text])
     {
         
         UIActivityIndicatorView  *av = [[UIActivityIndicatorView alloc]initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
@@ -57,7 +57,7 @@
         
         AFHTTPSessionManager * manager = [AFHTTPSessionManager manager];
         
-        [manager GET:[NSString stringWithFormat:@"%@/login/token", _env] parameters:nil success:^(NSURLSessionDataTask *task, id responseObject) {
+        [manager GET:[NSString stringWithFormat:@"%@/token/registration", _env] parameters:nil success:^(NSURLSessionDataTask *task, id responseObject) {
             
             NSDictionary *jsonObject = responseObject;
             
@@ -103,7 +103,7 @@
         
     }
     else
-        [self showAlert:@"Error Field" :@"Please fill fields"];
+        [self showAlert:@"Error Field" :@"Please, fill in correctly all the fields"];
     
 }
 
@@ -119,6 +119,18 @@
     [alert show];
 }
 
+
+-(BOOL) validateEmail:(NSString*) emailString
+{
+    NSString *regExPattern = @"^[A-Z0-9._%+-]+@[A-Z0-9.-]+\\.[A-Z]{2,4}$";
+    NSRegularExpression *regEx = [[NSRegularExpression alloc] initWithPattern:regExPattern options:NSRegularExpressionCaseInsensitive error:nil];
+    NSUInteger regExMatches = [regEx numberOfMatchesInString:emailString options:0 range:NSMakeRange(0, [emailString length])];
+    if (regExMatches == 0) {
+        return NO;
+    }
+    else
+        return YES;
+}
 
 - (void)didReceiveMemoryWarning
 {
