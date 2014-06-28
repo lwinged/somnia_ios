@@ -1,20 +1,18 @@
 //
-//  SMATabBarController.m
+//  SMARegistrationViewController.m
 //  Somnia
 //
-//  Created by flav on 22/06/2014.
+//  Created by flav on 28/06/2014.
 //  Copyright (c) 2014 flav. All rights reserved.
 //
 
-#import "SMATabBarController.h"
+#import "SMARegistrationViewController.h"
 
-#import "SMAWebViewController.h"
-
-@interface SMATabBarController ()
+@interface SMARegistrationViewController ()
 
 @end
 
-@implementation SMATabBarController
+@implementation SMARegistrationViewController
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -30,18 +28,22 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
-    SMAWebViewController * webViewController = self.viewControllers[0];
-    [webViewController setUrl:@"http://vm-0.lwinged.kd.io/Somnia/web/app.php/discover/goals"];
-
-    webViewController = self.viewControllers[1];
-    [webViewController setUrl:@"http://vm-0.lwinged.kd.io/Somnia/web/app.php/contribute"];
-
-    
-    webViewController = self.viewControllers[2];
-    [webViewController setUrl:@"http://vm-0.lwinged.kd.io/Somnia/web/app.php/toto"];
+    self.emailTextField.delegate = self;
+    self.usernameTextField.delegate = self;
+    self.passwordTextField.delegate = self;
     
 }
 
+- (BOOL)textFieldShouldReturn:(UITextField *)textField {
+    [textField resignFirstResponder];
+    return NO;
+}
+
+
+- (IBAction)registerAction:(id)sender
+{
+    NSLog(@"register");
+}
 
 - (void)didReceiveMemoryWarning
 {
