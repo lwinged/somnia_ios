@@ -9,6 +9,7 @@
 #import "SMATabBarController.h"
 
 #import "SMAWebViewController.h"
+#import "SMAGlobal.h"
 
 @interface SMATabBarController ()
 
@@ -31,14 +32,13 @@
     // Do any additional setup after loading the view.
     
     SMAWebViewController * webViewController = self.viewControllers[0];
-    [webViewController setUrl:@"http://vm-0.lwinged.kd.io/Somnia/web/app.php/discover/goals"];
+    [webViewController setUrl:[NSString stringWithFormat:@"%@/discover/goals", _env]];
 
     webViewController = self.viewControllers[1];
-    [webViewController setUrl:@"http://vm-0.lwinged.kd.io/Somnia/web/app.php/contribute"];
-
+    [webViewController setUrl:[NSString stringWithFormat:@"%@/contribute", _env]];
     
     webViewController = self.viewControllers[2];
-    [webViewController setUrl:@"http://vm-0.lwinged.kd.io/Somnia/web/app.php/toto"];
+    [webViewController setUrl:[NSString stringWithFormat:@"%@/%@", _env, self.username]];
     
 }
 

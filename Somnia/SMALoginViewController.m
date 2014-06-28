@@ -80,7 +80,11 @@
                     button.hidden = NO;
                 }
                 else
-                    [self presentViewController:[self.storyboard instantiateViewControllerWithIdentifier:@"tabbarcontroller"] animated:YES completion: nil];
+                {
+                    SMATabBarController * tabbar = [self.storyboard instantiateViewControllerWithIdentifier:@"tabbarcontroller"];
+                    tabbar.username = self.usernameTextField.text;
+                    [self presentViewController:tabbar animated:YES completion: nil];
+                }
                 
             } failure:^(NSURLSessionDataTask *task, NSError *error) {
              

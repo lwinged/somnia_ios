@@ -10,4 +10,7 @@
 
 @interface SMATabBarController : UITabBarController
 
+@property (strong, nonatomic) NSString * username;
+
+
 @end
