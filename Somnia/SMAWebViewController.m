@@ -33,6 +33,17 @@
     
 }
 
+- (BOOL)webView:(UIWebView *)webView shouldStartLoadWithRequest:(NSURLRequest *)request navigationType:(UIWebViewNavigationType)navigationType
+{
+    if ([request.URL.absoluteString hasSuffix:@"logout"])
+    {
+        //erase login mdp
+        [self presentViewController:[self.storyboard instantiateViewControllerWithIdentifier:@"navigationcontroller"] animated:YES completion: nil];
+
+    }
+    return YES;
+}
+
 - (BOOL)prefersStatusBarHidden
 {
     return YES;

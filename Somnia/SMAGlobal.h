@@ -9,6 +9,6 @@
 #ifndef Somnia_SMAGlobal_h
 #define Somnia_SMAGlobal_h
 
-static NSString * _env = @"http://vm-0.lwinged.kd.io/Somnia/web/app.php/";
+static NSString * _env = @"http://vm-0.lwinged.kd.io/Somnia/web/app.php";
 
 #endif

@@ -10,6 +10,7 @@
 
 #import "AFHTTPSessionManager.h"
 #import "SMAGlobal.h"
+#import "SMATabBarController.h"
 
 @interface SMALoginViewController ()
 
@@ -44,39 +45,72 @@
 
 - (IBAction)loginAction:(id)sender
 {
-    
     if (![self.usernameTextField.text isEqualToString:@""] && ![self.passwordTextField.text isEqualToString:@""])
     {
+        
+        UIActivityIndicatorView  *av = [[UIActivityIndicatorView alloc]initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
+        av.frame=CGRectMake(145, 160, 25, 25);
+        UIButton * button = (UIButton *)sender;
+        [av setCenter:button.center];
+        button.hidden = YES;
+        [self.view addSubview:av];
+        [av startAnimating];
+        
         AFHTTPSessionManager * manager = [AFHTTPSessionManager manager];
         
         [manager GET:[NSString stringWithFormat:@"%@/login/token", _env] parameters:nil success:^(NSURLSessionDataTask *task, id responseObject) {
             
-            NSLog(@"html %@", responseObject);
             NSDictionary *jsonObject = responseObject;
-            //jsonObject[@"token"];
             
             NSDictionary * parameters = @{@"_csrf_token": jsonObject[@"token"], @"_username":self.usernameTextField.text, @"_password":self.passwordTextField.text};
             
-            // configuration de cette route je pense
+            AFHTTPResponseSerializer *requestSerializer = [AFHTTPResponseSerializer serializer];
+            
+            [manager setResponseSerializer:requestSerializer];
+            
             [manager POST:[NSString stringWithFormat:@"%@/login_check", _env] parameters:parameters success:^(NSURLSessionDataTask *task, id responseObject) {
                 
-                NSLog(@"html %@", responseObject);
-                //jsonObject[@"token"];
+                NSString *html = [[NSString alloc] initWithData:responseObject encoding:NSUTF8StringEncoding];
+
+                if ([html rangeOfString:@"Invalid" options:NSCaseInsensitiveSearch].length
+                    > 0)
+                {
+                    [self showAlert:@"Error authentication" :@"Invalid username or password"];
+                    [av stopAnimating];
+                    button.hidden = NO;
+                }
+                else
+                    [self presentViewController:[self.storyboard instantiateViewControllerWithIdentifier:@"tabbarcontroller"] animated:YES completion: nil];
                 
             } failure:^(NSURLSessionDataTask *task, NSError *error) {
-                NSLog(@"login error : %@", error);
+             
+                [self showAlert:@"Error login check" :@"No network connection"];
+                [av stopAnimating];
+                button.hidden = NO;
             }];
 
         } failure:^(NSURLSessionDataTask *task, NSError *error) {
-            NSLog(@"token error : %@", error);
+            
+            [self showAlert:@"Error Token" :@"No network connection"];
+            [av stopAnimating];
+            button.hidden = NO;
+
         }];
         
     }
     else
-    {
-        NSLog(@"alert mdp && username");
-    }
+        [self showAlert:@"Error Field" :@"Please enter your username and password"];
     
+}
+
+- (void) showAlert:(NSString *) title :(NSString *) message
+{
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:title
+                                                    message:message
+                                                   delegate:nil
+                                          cancelButtonTitle:@"OK"
+                                          otherButtonTitles:nil];
+    [alert show];
 }
 
 
@@ -86,15 +120,5 @@
     // Dispose of any resources that can be recreated.
 }
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
-{
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end

@@ -45,7 +45,7 @@
         <!--Navigation Controller-->
         <scene sceneID="IYC-23-BhV">
             <objects>
-                <navigationController definesPresentationContext="YES" id="MpH-5f-KFA" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="navigationcontroller" definesPresentationContext="YES" id="MpH-5f-KFA" sceneMemberID="viewController">
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="eqj-py-Rqf">
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>

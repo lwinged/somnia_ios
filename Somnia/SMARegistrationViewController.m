@@ -7,6 +7,8 @@
 //
 
 #import "SMARegistrationViewController.h"
+#import "AFHTTPSessionManager.h"
+#import "SMAGlobal.h"
 
 @interface SMARegistrationViewController ()
 
@@ -42,8 +44,81 @@
 
 - (IBAction)registerAction:(id)sender
 {
-    NSLog(@"register");
+    if (![self.usernameTextField.text isEqualToString:@""] && ![self.passwordTextField.text isEqualToString:@""] && ![self.emailTextField.text isEqualToString:@""])
+    {
+        
+        UIActivityIndicatorView  *av = [[UIActivityIndicatorView alloc]initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
+        av.frame=CGRectMake(145, 160, 25, 25);
+        UIButton * button = (UIButton *)sender;
+        [av setCenter:button.center];
+        button.hidden = YES;
+        [self.view addSubview:av];
+        [av startAnimating];
+        
+        AFHTTPSessionManager * manager = [AFHTTPSessionManager manager];
+        
+        [manager GET:[NSString stringWithFormat:@"%@/login/token", _env] parameters:nil success:^(NSURLSessionDataTask *task, id responseObject) {
+            
+            NSDictionary *jsonObject = responseObject;
+            
+            NSDictionary * parameters = @{@"fos_user_registration_form[_token]": jsonObject[@"token"], @"fos_user_registration_form[username]":self.usernameTextField.text, @"fos_user_registration_form[plainPassword][first]":self.passwordTextField.text,
+                @"fos_user_registration_form[plainPassword][second]":self.passwordTextField.text,
+                @"fos_user_registration_form[email]":self.emailTextField.text};
+            
+            AFHTTPResponseSerializer *requestSerializer = [AFHTTPResponseSerializer serializer];
+            
+            [manager setResponseSerializer:requestSerializer];
+            
+            [manager POST:[NSString stringWithFormat:@"%@/signup", _env] parameters:parameters success:^(NSURLSessionDataTask *task, id responseObject) {
+                
+                NSString *html = [[NSString alloc] initWithData:responseObject encoding:NSUTF8StringEncoding];
+
+                NSLog(@"%@", html);
+                //Logged
+//                if ([html rangeOfString:@"Invalid" options:NSCaseInsensitiveSearch].length
+//                    > 0)
+//                {
+//                    [self showAlert:@"Error authentication" :@"Invalid username or password"];
+//                    [av stopAnimating];
+//                    button.hidden = NO;
+//                }
+//                else
+//                    [self presentViewController:[self.storyboard instantiateViewControllerWithIdentifier:@"tabbarcontroller"] animated:YES completion: nil];
+                
+            } failure:^(NSURLSessionDataTask *task, NSError *error) {
+                
+                [self showAlert:@"Error login check" :@"No network connection"];
+                [av stopAnimating];
+                button.hidden = NO;
+            }];
+            
+        } failure:^(NSURLSessionDataTask *task, NSError *error) {
+            
+            [self showAlert:@"Error Token" :@"No network connection"];
+            [av stopAnimating];
+            button.hidden = NO;
+            
+        }];
+        
+        
+    }
+    else
+        [self showAlert:@"Error Field" :@"Please fill fields"];
+    
 }
+
+
+
+- (void) showAlert:(NSString *) title :(NSString *) message
+{
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:title
+                                                    message:message
+                                                   delegate:nil
+                                          cancelButtonTitle:@"OK"
+                                          otherButtonTitles:nil];
+    [alert show];
+}
+
 
 - (void)didReceiveMemoryWarning
 {
