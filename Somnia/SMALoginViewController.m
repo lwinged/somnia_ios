@@ -8,6 +8,9 @@
 
 #import "SMALoginViewController.h"
 
+#import "AFHTTPSessionManager.h"
+#import "SMAGlobal.h"
+
 @interface SMALoginViewController ()
 
 @end
@@ -41,7 +44,39 @@
 
 - (IBAction)loginAction:(id)sender
 {
-    NSLog(@"login");
+    
+    if (![self.usernameTextField.text isEqualToString:@""] && ![self.passwordTextField.text isEqualToString:@""])
+    {
+        AFHTTPSessionManager * manager = [AFHTTPSessionManager manager];
+        
+        [manager GET:[NSString stringWithFormat:@"%@/login/token", _env] parameters:nil success:^(NSURLSessionDataTask *task, id responseObject) {
+            
+            NSLog(@"html %@", responseObject);
+            NSDictionary *jsonObject = responseObject;
+            //jsonObject[@"token"];
+            
+            NSDictionary * parameters = @{@"_csrf_token": jsonObject[@"token"], @"_username":self.usernameTextField.text, @"_password":self.passwordTextField.text};
+            
+            // configuration de cette route je pense
+            [manager POST:[NSString stringWithFormat:@"%@/login_check", _env] parameters:parameters success:^(NSURLSessionDataTask *task, id responseObject) {
+                
+                NSLog(@"html %@", responseObject);
+                //jsonObject[@"token"];
+                
+            } failure:^(NSURLSessionDataTask *task, NSError *error) {
+                NSLog(@"login error : %@", error);
+            }];
+
+        } failure:^(NSURLSessionDataTask *task, NSError *error) {
+            NSLog(@"token error : %@", error);
+        }];
+        
+    }
+    else
+    {
+        NSLog(@"alert mdp && username");
+    }
+    
 }
 
 
