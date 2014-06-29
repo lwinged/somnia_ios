@@ -31,14 +31,34 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
+    self.tabBar.tintColor = Rgb2UIColor(65, 171, 107);
+    
+    
+    
+
+    
+    
     SMAWebViewController * webViewController = self.viewControllers[0];
     [webViewController setUrl:[NSString stringWithFormat:@"%@/discover/goals", _env]];
+    UITabBarItem * item = self.tabBar.items[0];
+    item.title = @"Discover";
+    item.image = [UIImage imageNamed:@"discover.png"];
 
+    
+    
     webViewController = self.viewControllers[1];
     [webViewController setUrl:[NSString stringWithFormat:@"%@/contribute", _env]];
+    item = self.tabBar.items[1];
+    item.title = @"Contribute";
+    item.image = [UIImage imageNamed:@"contribute.png"];
+
     
     webViewController = self.viewControllers[2];
     [webViewController setUrl:[NSString stringWithFormat:@"%@/%@", _env, self.username]];
+    item = self.tabBar.items[2];
+    item.title = @"My profile";
+    item.image = [UIImage imageNamed:@"myprofile.png"];
+
     
 }
 

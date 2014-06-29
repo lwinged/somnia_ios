@@ -12,6 +12,8 @@
 #import "SMAGlobal.h"
 #import "SMATabBarController.h"
 
+#import <Security/Security.h>
+
 @interface SMALoginViewController ()
 
 @end
@@ -34,6 +36,9 @@
     self.usernameTextField.delegate = self;
     self.passwordTextField.delegate = self;
     
+    //move auto into another views
+    self.usernameTextField.text = [[NSUserDefaults standardUserDefaults] stringForKey:@"username"];
+     self.passwordTextField.text = [[NSUserDefaults standardUserDefaults] stringForKey:@"password"];
     
     self.navigationController.navigationBar.tintColor = Rgb2UIColor(65, 171, 107);
 
@@ -86,6 +91,12 @@
                 }
                 else
                 {
+                    //save using userdefaults BAD BUT TMP
+                    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+                    [defaults setObject:self.usernameTextField.text forKey:@"username"];
+                    [defaults setObject:self.passwordTextField.text forKey:@"password"];
+                    [defaults synchronize];
+                    
                     SMATabBarController * tabbar = [self.storyboard instantiateViewControllerWithIdentifier:@"tabbarcontroller"];
                     tabbar.username = self.usernameTextField.text;
                     [self presentViewController:tabbar animated:YES completion: nil];

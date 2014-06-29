@@ -38,6 +38,10 @@
     if ([request.URL.absoluteString hasSuffix:@"logout"])
     {
         //erase login mdp
+        
+        [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"username"];
+        [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"password"];
+
         [self presentViewController:[self.storyboard instantiateViewControllerWithIdentifier:@"navigationcontroller"] animated:YES completion: nil];
 
     }
