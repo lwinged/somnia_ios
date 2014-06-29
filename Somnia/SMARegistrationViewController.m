@@ -60,6 +60,7 @@
         [manager GET:[NSString stringWithFormat:@"%@/token/registration", _env] parameters:nil success:^(NSURLSessionDataTask *task, id responseObject) {
             
             NSDictionary *jsonObject = responseObject;
+            NSLog(@"%@",jsonObject);
             
             NSDictionary * parameters = @{@"fos_user_registration_form[_token]": jsonObject[@"token"], @"fos_user_registration_form[username]":self.usernameTextField.text, @"fos_user_registration_form[plainPassword][first]":self.passwordTextField.text,
                 @"fos_user_registration_form[plainPassword][second]":self.passwordTextField.text,
@@ -69,25 +70,31 @@
             
             [manager setResponseSerializer:requestSerializer];
             
-            [manager POST:[NSString stringWithFormat:@"%@/signup", _env] parameters:parameters success:^(NSURLSessionDataTask *task, id responseObject) {
+            [manager POST:[NSString stringWithFormat:@"%@/signup/", _env] parameters:parameters success:^(NSURLSessionDataTask *task, id responseObject) {
                 
                 NSString *html = [[NSString alloc] initWithData:responseObject encoding:NSUTF8StringEncoding];
 
                 NSLog(@"%@", html);
                 //Logged
-//                if ([html rangeOfString:@"Invalid" options:NSCaseInsensitiveSearch].length
-//                    > 0)
-//                {
-//                    [self showAlert:@"Error authentication" :@"Invalid username or password"];
-//                    [av stopAnimating];
-//                    button.hidden = NO;
-//                }
-//                else
-//                    [self presentViewController:[self.storyboard instantiateViewControllerWithIdentifier:@"tabbarcontroller"] animated:YES completion: nil];
+
+                if ([html rangeOfString:@"created successfully" options:NSCaseInsensitiveSearch].length
+                    > 0)
+                {
+                    [av stopAnimating];
+                    button.hidden = NO;
+                    [self showAlert:@"Registration success" :@"Now you can log in"];
+                    
+                }
+                else
+                {
+                    [self showAlert:@"Error Registration" :@"Username already exist"];
+                    [av stopAnimating];
+                    button.hidden = NO;
+                }
                 
             } failure:^(NSURLSessionDataTask *task, NSError *error) {
                 
-                [self showAlert:@"Error login check" :@"No network connection"];
+                [self showAlert:@"Error Registration" :@"Username already exist"];
                 [av stopAnimating];
                 button.hidden = NO;
             }];
