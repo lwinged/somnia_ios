@@ -70,11 +70,11 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3co-Mj-6lf">
-                                <rect key="frame" x="120" y="379" width="80" height="35"/>
+                                <rect key="frame" x="120" y="420" width="80" height="35"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="deviceRGB"/>
+                                <color key="backgroundColor" red="0.25490196078431371" green="0.6705882352941176" blue="0.41960784313725491" alpha="1" colorSpace="deviceRGB"/>
                                 <state key="normal" title="Login">
-                                    <color key="titleColor" red="0.13725490870000001" green="0.86666673419999996" blue="0.058823533359999999" alpha="1" colorSpace="deviceRGB"/>
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     <color key="titleShadowColor" red="0.13725490870000001" green="0.86666673419999996" blue="0.058823533359999999" alpha="1" colorSpace="deviceRGB"/>
                                 </state>
                                 <connections>
@@ -82,22 +82,27 @@
                                 </connections>
                             </button>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Username" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="5Th-Vp-Z0B">
-                                <rect key="frame" x="95" y="175" width="131" height="30"/>
+                                <rect key="frame" x="95" y="226" width="131" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="uXH-yY-9fL">
-                                <rect key="frame" x="95" y="260" width="131" height="30"/>
+                                <rect key="frame" x="95" y="323" width="131" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                             </textField>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="logo2x.png" translatesAutoresizingMaskIntoConstraints="NO" id="B5K-AA-mf9">
+                                <rect key="frame" x="78" y="106" width="167" height="54"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
                         </subviews>
-                        <color key="backgroundColor" red="0.35705158358535116" green="1" blue="0.37875655549115061" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" red="0.98039215686274506" green="0.97254901960784312" blue="0.96470588235294119" alpha="1" colorSpace="deviceRGB"/>
                     </view>
                     <navigationItem key="navigationItem" title="Somnia" id="jzb-mC-Htr">
                         <barButtonItem key="rightBarButtonItem" title="Sign up" id="UUc-hk-qMA">
+                            <color key="tintColor" red="0.25490196079999999" green="0.6705882353" blue="0.41960784309999999" alpha="1" colorSpace="deviceRGB"/>
                             <connections>
                                 <segue destination="D4b-qg-z9N" kind="push" id="F7d-yb-OM3"/>
                             </connections>
@@ -143,17 +148,19 @@
                                 <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="O1G-tR-YlV">
-                                <rect key="frame" x="123" y="400" width="64" height="39"/>
+                                <rect key="frame" x="123" y="400" width="80" height="39"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.25490196079999999" green="0.6705882353" blue="0.41960784309999999" alpha="1" colorSpace="deviceRGB"/>
                                 <state key="normal" title="Register">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="titleShadowColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
                                     <action selector="registerAction:" destination="D4b-qg-z9N" eventType="touchUpInside" id="gYB-ME-xHx"/>
                                 </connections>
                             </button>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.98039215686274506" green="0.97254901960784312" blue="0.96470588235294119" alpha="1" colorSpace="deviceRGB"/>
                     </view>
                     <navigationItem key="navigationItem" title="Sign up" id="lb1-7d-Xiu"/>
                     <connections>
@@ -175,7 +182,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                     </webView>
-                    <tabBarItem key="tabBarItem" systemItem="contacts" id="whM-jR-2wG"/>
+                    <tabBarItem key="tabBarItem" systemItem="bookmarks" id="whM-jR-2wG"/>
                     <connections>
                         <outlet property="webView" destination="GrZ-Go-AfH" id="Dh0-Ut-tJ7"/>
                     </connections>
@@ -193,7 +200,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                     </webView>
-                    <tabBarItem key="tabBarItem" systemItem="history" id="0ao-R2-g7U"/>
+                    <tabBarItem key="tabBarItem" systemItem="contacts" id="0ao-R2-g7U" userLabel="Tab Bar Item - History"/>
                     <connections>
                         <outlet property="webView" destination="HB3-4H-co3" id="BSD-1H-uCw"/>
                     </connections>
@@ -203,6 +210,9 @@
             <point key="canvasLocation" x="578" y="-325"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="logo2x.png" width="272" height="60"/>
+    </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>

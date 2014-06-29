@@ -34,7 +34,11 @@
     self.usernameTextField.delegate = self;
     self.passwordTextField.delegate = self;
     
-    // Do any additional setup after loading the view.
+    
+    self.navigationController.navigationBar.tintColor = Rgb2UIColor(65, 171, 107);
+
+    self.navigationController.navigationBar.titleTextAttributes = @{NSForegroundColorAttributeName : Rgb2UIColor(65, 171, 107)};
+
 }
 
 
@@ -48,8 +52,9 @@
     if (![self.usernameTextField.text isEqualToString:@""] && ![self.passwordTextField.text isEqualToString:@""])
     {
         
-        UIActivityIndicatorView  *av = [[UIActivityIndicatorView alloc]initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
-        av.frame=CGRectMake(145, 160, 25, 25);
+        UIActivityIndicatorView  *av = [UIActivityIndicatorView new];
+        av.color = Rgb2UIColor(65, 171, 107);
+        
         UIButton * button = (UIButton *)sender;
         [av setCenter:button.center];
         button.hidden = YES;

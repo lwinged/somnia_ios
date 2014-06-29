@@ -10,6 +10,7 @@
 #import "AFHTTPSessionManager.h"
 #import "SMAGlobal.h"
 
+
 @interface SMARegistrationViewController ()
 
 @end
@@ -47,8 +48,9 @@
     if (![self.usernameTextField.text isEqualToString:@""] && ![self.passwordTextField.text isEqualToString:@""] && ![self.emailTextField.text isEqualToString:@""] && [self validateEmail:self.emailTextField.text])
     {
         
-        UIActivityIndicatorView  *av = [[UIActivityIndicatorView alloc]initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
-        av.frame=CGRectMake(145, 160, 25, 25);
+        UIActivityIndicatorView  *av = [UIActivityIndicatorView new];
+        av.color = Rgb2UIColor(65, 171, 107);
+        
         UIButton * button = (UIButton *)sender;
         [av setCenter:button.center];
         button.hidden = YES;

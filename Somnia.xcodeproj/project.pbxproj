@@ -25,6 +25,7 @@
 		EE27D8631956E7EB00626285 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = EE27D8611956E7EB00626285 /* InfoPlist.strings */; };
 		EE27D8651956E7EB00626285 /* SomniaTests.m in Sources */ = {isa = PBXBuildFile; fileRef = EE27D8641956E7EB00626285 /* SomniaTests.m */; };
 		EE27D8701956FFA500626285 /* SMATabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = EE27D86F1956FFA500626285 /* SMATabBarController.m */; };
+		EE95651F19601B5C008FA43E /* logo2x.png in Resources */ = {isa = PBXBuildFile; fileRef = EE95651E19601B5C008FA43E /* logo2x.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -66,6 +67,7 @@
 		EE27D8641956E7EB00626285 /* SomniaTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SomniaTests.m; sourceTree = "<group>"; };
 		EE27D86E1956FFA500626285 /* SMATabBarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SMATabBarController.h; sourceTree = "<group>"; };
 		EE27D86F1956FFA500626285 /* SMATabBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SMATabBarController.m; sourceTree = "<group>"; };
+		EE95651E19601B5C008FA43E /* logo2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logo2x.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -150,6 +152,7 @@
 		EE27D8401956E7EB00626285 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				EE95651E19601B5C008FA43E /* logo2x.png */,
 				EE27D8411956E7EB00626285 /* Somnia-Info.plist */,
 				EE27D8421956E7EB00626285 /* InfoPlist.strings */,
 				EE27D8451956E7EB00626285 /* main.m */,
@@ -262,6 +265,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EE95651F19601B5C008FA43E /* logo2x.png in Resources */,
 				EE27D8521956E7EB00626285 /* Images.xcassets in Resources */,
 				EE27D8441956E7EB00626285 /* InfoPlist.strings in Resources */,
 				EE27D84D1956E7EB00626285 /* Main.storyboard in Resources */,
