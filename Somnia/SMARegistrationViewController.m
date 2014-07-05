@@ -36,13 +36,17 @@
     self.passwordTextField.delegate = self;
     
 }
-
+/**
+hide keybord when return button is pressed
+ */
 - (BOOL)textFieldShouldReturn:(UITextField *)textField {
     [textField resignFirstResponder];
     return NO;
 }
 
-
+/**
+ start registration request to web server when registration button is pressed
+ */
 - (IBAction)registerAction:(id)sender
 {
     if (![self.usernameTextField.text isEqualToString:@""] && ![self.passwordTextField.text isEqualToString:@""] && ![self.emailTextField.text isEqualToString:@""] && [self validateEmail:self.emailTextField.text])
@@ -117,7 +121,9 @@
 }
 
 
-
+/**
+ show alert message (pop up)
+ */
 - (void) showAlert:(NSString *) title :(NSString *) message
 {
     UIAlertView *alert = [[UIAlertView alloc] initWithTitle:title
@@ -128,7 +134,9 @@
     [alert show];
 }
 
-
+/**
+ email validator
+ */
 -(BOOL) validateEmail:(NSString*) emailString
 {
     NSString *regExPattern = @"^[A-Z0-9._%+-]+@[A-Z0-9.-]+\\.[A-Z]{2,4}$";

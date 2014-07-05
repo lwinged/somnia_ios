@@ -8,8 +8,22 @@
 
 #import <UIKit/UIKit.h>
 
+/**
+    WebViewController - control embedded web view
+ */
+
 @interface SMAWebViewController : UIViewController <UIWebViewDelegate>
+
+
+/**
+    Embedded Webview
+ */
+
 @property (weak, nonatomic) IBOutlet UIWebView *webView;
+
+/**
+    url to request in order to load page
+ */
 @property (strong, nonatomic) NSString * url;
 
 

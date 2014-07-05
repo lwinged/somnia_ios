@@ -8,8 +8,14 @@
 
 #import <UIKit/UIKit.h>
 
+/**
+    Tabbar Controller - 3 bars (discover, contribute, my profile)
+ */
 @interface SMATabBarController : UITabBarController
 
+/**
+    Username enter into login form
+ */
 @property (strong, nonatomic) NSString * username;
 
 

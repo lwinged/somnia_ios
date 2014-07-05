@@ -36,8 +36,8 @@
     self.usernameTextField.delegate = self;
     self.passwordTextField.delegate = self;
     
-    //move auto into another views
-    self.usernameTextField.text = [[NSUserDefaults standardUserDefaults] stringForKey:@"username"];
+    //fill fields if not logout
+     self.usernameTextField.text = [[NSUserDefaults standardUserDefaults] stringForKey:@"username"];
      self.passwordTextField.text = [[NSUserDefaults standardUserDefaults] stringForKey:@"password"];
     
     self.navigationController.navigationBar.tintColor = Rgb2UIColor(65, 171, 107);
@@ -46,12 +46,18 @@
 
 }
 
+/**
+ hide keybord when return button is pressed
+ */
 
 - (BOOL)textFieldShouldReturn:(UITextField *)textField {
     [textField resignFirstResponder];
     return NO;
 }
 
+/**
+ start login request to web server when login button is pressed
+ */
 - (IBAction)loginAction:(id)sender
 {
     if (![self.usernameTextField.text isEqualToString:@""] && ![self.passwordTextField.text isEqualToString:@""])
@@ -123,6 +129,9 @@
     
 }
 
+/**
+ show alert message (pop up)
+ */
 - (void) showAlert:(NSString *) title :(NSString *) message
 {
     UIAlertView *alert = [[UIAlertView alloc] initWithTitle:title

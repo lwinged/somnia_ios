@@ -15,7 +15,9 @@
 @implementation SMAWebViewController
 
 
-
+/**
+when view did load the webview starts the request (see url)
+ */
 - (void)viewDidLoad
 {
     [super viewDidLoad];
@@ -33,11 +35,14 @@
     
 }
 
+/**
+    when the request starts to load, we check if a logout request is sent
+ */
 - (BOOL)webView:(UIWebView *)webView shouldStartLoadWithRequest:(NSURLRequest *)request navigationType:(UIWebViewNavigationType)navigationType
 {
     if ([request.URL.absoluteString hasSuffix:@"logout"])
     {
-        //erase login mdp
+        //erase login and password
         
         [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"username"];
         [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"password"];
@@ -47,6 +52,10 @@
     }
     return YES;
 }
+
+/**
+ hide the status bar
+ */
 
 - (BOOL)prefersStatusBarHidden
 {

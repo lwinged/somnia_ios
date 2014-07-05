@@ -26,17 +26,15 @@
     return self;
 }
 
+/**
+    When view did load, 3 webviews load their pages (discover, contribute, my profile)
+ */
 - (void)viewDidLoad
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
     self.tabBar.tintColor = Rgb2UIColor(65, 171, 107);
-    
-    
-    
-
-    
     
     SMAWebViewController * webViewController = self.viewControllers[0];
     [webViewController setUrl:[NSString stringWithFormat:@"%@/discover/goals", _env]];
