@@ -29,4 +29,24 @@ email field
 @property (weak, nonatomic) IBOutlet UITextField *passwordTextField;
 
 
+/**
+ show alert message (pop up)
+ */
+- (void) showAlert:(NSString *) title :(NSString *) message;
+
+/**
+ email validator
+ */
+-(BOOL) validateEmail:(NSString*) emailString;
+
+/**
+ start registration request to web server when registration button is pressed
+ */
+- (IBAction)registerAction:(id)sender;
+
+/**
+ hide keybord when return button is pressed
+ */
+- (BOOL)textFieldShouldReturn:(UITextField *)textField;
+
 @end

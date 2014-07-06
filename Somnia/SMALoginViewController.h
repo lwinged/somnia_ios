@@ -26,4 +26,20 @@
 
 @property (weak, nonatomic) IBOutlet UITextField *passwordTextField;
 
+
+/**
+ start login request to web server when login button is pressed
+ */
+- (IBAction)loginAction:(id)sender;
+
+/**
+ hide keybord when return button is pressed
+ */
+- (BOOL)textFieldShouldReturn:(UITextField *)textField;
+
+/**
+ show alert message (pop up)
+ */
+- (void) showAlert:(NSString *) title :(NSString *) message;
+
 @end

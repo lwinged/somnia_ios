@@ -27,4 +27,15 @@
 @property (strong, nonatomic) NSString * url;
 
 
+/**
+ hide the status bar
+ */
+
+- (BOOL)prefersStatusBarHidden;
+
+/**
+ when the request starts to load, we check if a logout request is sent
+ */
+- (BOOL)webView:(UIWebView *)webView shouldStartLoadWithRequest:(NSURLRequest *)request navigationType:(UIWebViewNavigationType)navigationType;
+
 @end
