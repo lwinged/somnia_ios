@@ -7,6 +7,7 @@
 //
 
 #import "SMAWebViewController.h"
+#import "UICKeyChainStore.h"
 
 @interface SMAWebViewController ()
 
@@ -43,9 +44,11 @@ when view did load the webview starts the request (see url)
     if ([request.URL.absoluteString hasSuffix:@"logout"])
     {
         //erase login and password
-        
-        [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"username"];
-        [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"password"];
+
+        UICKeyChainStore *store = [UICKeyChainStore keyChainStore];
+        [store removeItemForKey:@"username"];
+        [store removeItemForKey:@"password"];
+        [store synchronize];
 
         [self presentViewController:[self.storyboard instantiateViewControllerWithIdentifier:@"navigationcontroller"] animated:YES completion: nil];
 

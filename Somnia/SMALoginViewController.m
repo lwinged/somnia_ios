@@ -12,7 +12,7 @@
 #import "SMAGlobal.h"
 #import "SMATabBarController.h"
 
-#import <Security/Security.h>
+#import "UICKeyChainStore.h"
 
 @interface SMALoginViewController ()
 
@@ -36,9 +36,12 @@
     self.usernameTextField.delegate = self;
     self.passwordTextField.delegate = self;
     
+    
     //fill fields if not logout
-     self.usernameTextField.text = [[NSUserDefaults standardUserDefaults] stringForKey:@"username"];
-     self.passwordTextField.text = [[NSUserDefaults standardUserDefaults] stringForKey:@"password"];
+    
+    self.usernameTextField.text = [[UICKeyChainStore keyChainStore] stringForKey:@"username"];
+    self.passwordTextField.text = [[UICKeyChainStore keyChainStore] stringForKey:@"password"];
+    
     
     self.navigationController.navigationBar.tintColor = Rgb2UIColor(65, 171, 107);
 
@@ -97,11 +100,12 @@
                 }
                 else
                 {
-                    //save using userdefaults BAD BUT TMP
-                    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-                    [defaults setObject:self.usernameTextField.text forKey:@"username"];
-                    [defaults setObject:self.passwordTextField.text forKey:@"password"];
-                    [defaults synchronize];
+                    
+                    UICKeyChainStore *store = [UICKeyChainStore keyChainStore];
+                    [store setString:self.usernameTextField.text forKey:@"username"];
+                    [store setString:self.passwordTextField.text forKey:@"password"];
+                    [store synchronize];
+                    
                     
                     SMATabBarController * tabbar = [self.storyboard instantiateViewControllerWithIdentifier:@"tabbarcontroller"];
                     tabbar.username = self.usernameTextField.text;
