@@ -94,7 +94,7 @@
                 if ([html rangeOfString:@"Invalid" options:NSCaseInsensitiveSearch].length
                     > 0)
                 {
-                    [self showAlert:@"Error authentication" :@"Invalid username or password"];
+                    [self showAlert:NSLocalizedString(@"Error authentication",nil) :NSLocalizedString(@"Invalid username or password",nil)];
                     [av stopAnimating];
                     button.hidden = NO;
                 }
@@ -114,14 +114,14 @@
                 
             } failure:^(NSURLSessionDataTask *task, NSError *error) {
              
-                [self showAlert:@"Error login check" :@"No network connection"];
+                [self showAlert:NSLocalizedString(@"Error login check",nil) :NSLocalizedString(@"No network connection",nil)];
                 [av stopAnimating];
                 button.hidden = NO;
             }];
 
         } failure:^(NSURLSessionDataTask *task, NSError *error) {
             
-            [self showAlert:@"Error Token" :@"No network connection"];
+            [self showAlert:NSLocalizedString(@"Error Token",nil) :NSLocalizedString(@"No network connection",nil)];
             [av stopAnimating];
             button.hidden = NO;
 
@@ -129,7 +129,7 @@
         
     }
     else
-        [self showAlert:@"Error Field" :@"Please enter your username and password"];
+        [self showAlert:NSLocalizedString(@"Error Field",nil) :NSLocalizedString(@"Please enter your username and password",nil)];
     
 }
 

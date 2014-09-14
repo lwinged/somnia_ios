@@ -1,0 +1,31 @@
+/* 
+  Localizable.strings
+  Somnia
+
+  Created by flav on 14/09/2014.
+  Copyright (c) 2014 flav. All rights reserved.
+*/
+
+"Please, fill in correctly all the fields" = "Merci de remplir correctement tous les champs";
+
+"Error Field" = "Erreur Champ";
+
+"Error Token" = "Erreur jeton";
+
+"No network connection" = "Pas de connexion reseau";
+
+"Error Registration" = "Erreur Inscription";
+
+"Username already exist" = "Ce nom d'utilisateur existe deja";
+
+"Registration success" = "Inscription reussie";
+
+"Now you can log in" = "Vous pouvez maintenant vous connecter";
+
+"Please enter your username and password" = "Merci d'entrer votre nom d'utilsateur et votre mot de passe";
+
+"Error login check" = "Erreur verification identifiant";
+
+"Error authentication" = "Erreur authentification";
+
+"Invalid username or password" = "Nom d'utilisateur ou mot de passe invalide";

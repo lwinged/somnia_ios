@@ -88,26 +88,26 @@ hide keybord when return button is pressed
                 {
                     [av stopAnimating];
                     button.hidden = NO;
-                    [self showAlert:@"Registration success" :@"Now you can log in"];
+                    [self showAlert:NSLocalizedString(@"Registration success",nil) :NSLocalizedString(@"Now you can log in",nil)];
                     
                 }
                 else
                 {
-                    [self showAlert:@"Error Registration" :@"Username already exist"];
+                    [self showAlert:NSLocalizedString(@"Error Registration",nil) :NSLocalizedString(@"Username already exist",nil)];
                     [av stopAnimating];
                     button.hidden = NO;
                 }
                 
             } failure:^(NSURLSessionDataTask *task, NSError *error) {
                 
-                [self showAlert:@"Error Registration" :@"Username already exist"];
+                [self showAlert:NSLocalizedString(@"Error Registration",nil) :NSLocalizedString(@"Username already exist",nil)];
                 [av stopAnimating];
                 button.hidden = NO;
             }];
             
         } failure:^(NSURLSessionDataTask *task, NSError *error) {
             
-            [self showAlert:@"Error Token" :@"No network connection"];
+            [self showAlert:NSLocalizedString(@"Error Token", nil):NSLocalizedString(@"No network connection", nil)];
             [av stopAnimating];
             button.hidden = NO;
             
@@ -116,7 +116,8 @@ hide keybord when return button is pressed
         
     }
     else
-        [self showAlert:@"Error Field" :@"Please, fill in correctly all the fields"];
+        [self showAlert:NSLocalizedString(@"Error Field", nil) :NSLocalizedString(@"Please, fill in correctly all the fields", nil)];
+    
     
 }
 

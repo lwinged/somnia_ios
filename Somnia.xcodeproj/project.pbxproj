@@ -29,6 +29,7 @@
 		EE95652B19604805008FA43E /* contribute.png in Resources */ = {isa = PBXBuildFile; fileRef = EE95652819604805008FA43E /* contribute.png */; };
 		EE95652C19604805008FA43E /* discover.png in Resources */ = {isa = PBXBuildFile; fileRef = EE95652919604805008FA43E /* discover.png */; };
 		EE95652D19604805008FA43E /* myprofile.png in Resources */ = {isa = PBXBuildFile; fileRef = EE95652A19604805008FA43E /* myprofile.png */; };
+		EED6930A19C5DD130038D6DA /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = EED6930C19C5DD130038D6DA /* Localizable.strings */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -74,6 +75,10 @@
 		EE95652819604805008FA43E /* contribute.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = contribute.png; sourceTree = "<group>"; };
 		EE95652919604805008FA43E /* discover.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = discover.png; sourceTree = "<group>"; };
 		EE95652A19604805008FA43E /* myprofile.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = myprofile.png; sourceTree = "<group>"; };
+		EED6930519C5DC5B0038D6DA /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/Main.strings; sourceTree = "<group>"; };
+		EED6930619C5DC5B0038D6DA /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		EED6930719C5DC5B0038D6DA /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		EED6930B19C5DD130038D6DA /* fr */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; lineEnding = 0; name = fr; path = fr.lproj/Localizable.strings; sourceTree = "<group>"; usesTabs = 0; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -166,6 +171,7 @@
 				EE27D8421956E7EB00626285 /* InfoPlist.strings */,
 				EE27D8451956E7EB00626285 /* main.m */,
 				EE27D8471956E7EB00626285 /* Somnia-Prefix.pch */,
+				EED6930C19C5DD130038D6DA /* Localizable.strings */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -257,6 +263,7 @@
 			knownRegions = (
 				en,
 				Base,
+				fr,
 			);
 			mainGroup = EE27D82D1956E7EB00626285;
 			productRefGroup = EE27D8371956E7EB00626285 /* Products */;
@@ -279,6 +286,7 @@
 				EE27D8521956E7EB00626285 /* Images.xcassets in Resources */,
 				EE95652B19604805008FA43E /* contribute.png in Resources */,
 				EE27D8441956E7EB00626285 /* InfoPlist.strings in Resources */,
+				EED6930A19C5DD130038D6DA /* Localizable.strings in Resources */,
 				EE27D84D1956E7EB00626285 /* Main.storyboard in Resources */,
 				EE95652D19604805008FA43E /* myprofile.png in Resources */,
 			);
@@ -364,6 +372,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				EE27D8431956E7EB00626285 /* en */,
+				EED6930619C5DC5B0038D6DA /* fr */,
 			);
 			name = InfoPlist.strings;
 			sourceTree = "<group>";
@@ -372,6 +381,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				EE27D84C1956E7EB00626285 /* Base */,
+				EED6930519C5DC5B0038D6DA /* fr */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
@@ -380,8 +390,17 @@
 			isa = PBXVariantGroup;
 			children = (
 				EE27D8621956E7EB00626285 /* en */,
+				EED6930719C5DC5B0038D6DA /* fr */,
 			);
 			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		EED6930C19C5DD130038D6DA /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				EED6930B19C5DD130038D6DA /* fr */,
+			);
+			name = Localizable.strings;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
