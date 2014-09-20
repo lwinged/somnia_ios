@@ -10,29 +10,29 @@
 	<string>Somnia</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
-		<key>936BB397-3ABB-4E01-8FE5-FF057E3CB13E</key>
+		<key>4C35AEEC80EB5B8A3419CCE57F5A179664368CA1</key>
 		<string>ssh://github.com/lwinged/somnia_ios.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
 	<string>Somnia.xcworkspace</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
-		<key>936BB397-3ABB-4E01-8FE5-FF057E3CB13E</key>
+		<key>4C35AEEC80EB5B8A3419CCE57F5A179664368CA1</key>
 		<string>..</string>
 	</dict>
 	<key>IDESourceControlProjectURL</key>
 	<string>ssh://github.com/lwinged/somnia_ios.git</string>
 	<key>IDESourceControlProjectVersion</key>
-	<integer>110</integer>
+	<integer>111</integer>
 	<key>IDESourceControlProjectWCCIdentifier</key>
-	<string>936BB397-3ABB-4E01-8FE5-FF057E3CB13E</string>
+	<string>4C35AEEC80EB5B8A3419CCE57F5A179664368CA1</string>
 	<key>IDESourceControlProjectWCConfigurations</key>
 	<array>
 		<dict>
 			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
 			<string>public.vcs.git</string>
 			<key>IDESourceControlWCCIdentifierKey</key>
-			<string>936BB397-3ABB-4E01-8FE5-FF057E3CB13E</string>
+			<string>4C35AEEC80EB5B8A3419CCE57F5A179664368CA1</string>
 			<key>IDESourceControlWCCName</key>
 			<string>Somnia</string>
 		</dict>
