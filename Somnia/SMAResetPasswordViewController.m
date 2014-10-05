@@ -24,6 +24,8 @@
 
 - (IBAction)resetPasswordAction:(id)sender {
     
+    // a revoir
+    
     if (![self.emailTextField.text isEqualToString:@""] && [self validateEmail:self.emailTextField.text])
     {
         

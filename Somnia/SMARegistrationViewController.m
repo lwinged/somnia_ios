@@ -66,7 +66,6 @@ hide keybord when return button is pressed
         [manager GET:[NSString stringWithFormat:@"%@/token/registration", _env] parameters:nil success:^(NSURLSessionDataTask *task, id responseObject) {
             
             NSDictionary *jsonObject = responseObject;
-            NSLog(@"%@",jsonObject);
             
             NSDictionary * parameters = @{@"fos_user_registration_form[_token]": jsonObject[@"token"], @"fos_user_registration_form[username]":self.usernameTextField.text, @"fos_user_registration_form[plainPassword][first]":self.passwordTextField.text,
                 @"fos_user_registration_form[plainPassword][second]":self.passwordTextField.text,

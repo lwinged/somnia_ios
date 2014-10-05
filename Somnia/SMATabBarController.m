@@ -39,7 +39,7 @@
     SMAWebViewController * webViewController = self.viewControllers[0];
     [webViewController setUrl:[NSString stringWithFormat:@"%@/discover/goals", _env]];
     UITabBarItem * item = self.tabBar.items[0];
-    item.title = @"Discover";
+    item.title = NSLocalizedString(@"Discover", nil);
     item.image = [UIImage imageNamed:@"discover.png"];
 
     
@@ -47,14 +47,14 @@
     webViewController = self.viewControllers[1];
     [webViewController setUrl:[NSString stringWithFormat:@"%@/contribute", _env]];
     item = self.tabBar.items[1];
-    item.title = @"Contribute";
+    item.title =  NSLocalizedString(@"Contribute", nil);
     item.image = [UIImage imageNamed:@"contribute.png"];
 
     
     webViewController = self.viewControllers[2];
     [webViewController setUrl:[NSString stringWithFormat:@"%@/%@", _env, self.username]];
     item = self.tabBar.items[2];
-    item.title = @"My profile";
+    item.title = NSLocalizedString(@"My profile", nil);
     item.image = [UIImage imageNamed:@"myprofile.png"];
 
     
