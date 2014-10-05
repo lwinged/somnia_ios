@@ -1,30 +1,45 @@
 
-/* Class = "IBUIButton"; normalTitle = "Login"; ObjectID = "3co-Mj-6lf"; */
+/* Class = "IBUIButton"; normalTitle = "Connexion"; ObjectID = "3co-Mj-6lf"; */
 "3co-Mj-6lf.normalTitle" = "Connexion";
 
-/* Class = "IBUITextField"; placeholder = "Username"; ObjectID = "5Th-Vp-Z0B"; */
+/* Class = "IBUITextField"; placeholder = "Nom d'utilisateur"; ObjectID = "5Th-Vp-Z0B"; */
 "5Th-Vp-Z0B.placeholder" = "Nom d'utilisateur";
 
-/* Class = "IBUITextField"; placeholder = "Password"; ObjectID = "Jos-PZ-j8O"; */
+/* Class = "IBUIButton"; normalTitle = "Reset"; ObjectID = "6s3-dF-e9i"; */
+"6s3-dF-e9i.normalTitle" = "Reset";
+
+/* Class = "IBUITextField"; placeholder = "Mot de passe"; ObjectID = "Jos-PZ-j8O"; */
 "Jos-PZ-j8O.placeholder" = "Mot de passe";
 
-/* Class = "IBUITextField"; placeholder = "Username"; ObjectID = "Nvb-lI-Pn5"; */
+/* Class = "IBUINavigationItem"; title = "Reset password"; ObjectID = "Npn-vM-qYe"; */
+"Npn-vM-qYe.title" = "Reset password";
+
+/* Class = "IBUITextField"; placeholder = "Nom d'utilisateur"; ObjectID = "Nvb-lI-Pn5"; */
 "Nvb-lI-Pn5.placeholder" = "Nom d'utilisateur";
 
-/* Class = "IBUIButton"; normalTitle = "Register"; ObjectID = "O1G-tR-YlV"; */
+/* Class = "IBUIButton"; normalTitle = "Enregistrer"; ObjectID = "O1G-tR-YlV"; */
 "O1G-tR-YlV.normalTitle" = "Enregistrer";
 
-/* Class = "IBUITextField"; placeholder = "Email"; ObjectID = "USo-8Y-p5V"; */
+/* Class = "IBUITextField"; placeholder = "E-mail"; ObjectID = "USo-8Y-p5V"; */
 "USo-8Y-p5V.placeholder" = "E-mail";
 
-/* Class = "IBUIBarButtonItem"; title = "Sign up"; ObjectID = "UUc-hk-qMA"; */
+/* Class = "IBUIBarButtonItem"; title = "S'inscrire"; ObjectID = "UUc-hk-qMA"; */
 "UUc-hk-qMA.title" = "S'inscrire";
+
+/* Class = "IBUITextField"; placeholder = "Email"; ObjectID = "eDR-mP-upB"; */
+"eDR-mP-upB.placeholder" = "Email";
+
+/* Class = "IBUIViewController"; title = "Reset"; ObjectID = "jqr-eS-ueD"; */
+"jqr-eS-ueD.title" = "Reset";
 
 /* Class = "IBUINavigationItem"; title = "Somnia"; ObjectID = "jzb-mC-Htr"; */
 "jzb-mC-Htr.title" = "Somnia";
 
-/* Class = "IBUINavigationItem"; title = "Sign up"; ObjectID = "lb1-7d-Xiu"; */
+/* Class = "IBUINavigationItem"; title = "S'inscrire"; ObjectID = "lb1-7d-Xiu"; */
 "lb1-7d-Xiu.title" = "S'inscrire";
 
-/* Class = "IBUITextField"; placeholder = "Password"; ObjectID = "uXH-yY-9fL"; */
+/* Class = "IBUIButton"; normalTitle = "Reset password"; ObjectID = "nH1-X1-f9z"; */
+"nH1-X1-f9z.normalTitle" = "Reset password";
+
+/* Class = "IBUITextField"; placeholder = "Mot de passe"; ObjectID = "uXH-yY-9fL"; */
 "uXH-yY-9fL.placeholder" = "Mot de passe";

@@ -1,0 +1,45 @@
+
+/* Class = "IBUIButton"; normalTitle = "Login"; ObjectID = "3co-Mj-6lf"; */
+"3co-Mj-6lf.normalTitle" = "Login";
+
+/* Class = "IBUITextField"; placeholder = "Username"; ObjectID = "5Th-Vp-Z0B"; */
+"5Th-Vp-Z0B.placeholder" = "Username";
+
+/* Class = "IBUIButton"; normalTitle = "Reset"; ObjectID = "6s3-dF-e9i"; */
+"6s3-dF-e9i.normalTitle" = "Reset";
+
+/* Class = "IBUITextField"; placeholder = "Password"; ObjectID = "Jos-PZ-j8O"; */
+"Jos-PZ-j8O.placeholder" = "Password";
+
+/* Class = "IBUINavigationItem"; title = "Reset password"; ObjectID = "Npn-vM-qYe"; */
+"Npn-vM-qYe.title" = "Reset password";
+
+/* Class = "IBUITextField"; placeholder = "Username"; ObjectID = "Nvb-lI-Pn5"; */
+"Nvb-lI-Pn5.placeholder" = "Username";
+
+/* Class = "IBUIButton"; normalTitle = "Register"; ObjectID = "O1G-tR-YlV"; */
+"O1G-tR-YlV.normalTitle" = "Register";
+
+/* Class = "IBUITextField"; placeholder = "Email"; ObjectID = "USo-8Y-p5V"; */
+"USo-8Y-p5V.placeholder" = "Email";
+
+/* Class = "IBUIBarButtonItem"; title = "Sign up"; ObjectID = "UUc-hk-qMA"; */
+"UUc-hk-qMA.title" = "Sign up";
+
+/* Class = "IBUITextField"; placeholder = "Email"; ObjectID = "eDR-mP-upB"; */
+"eDR-mP-upB.placeholder" = "Email";
+
+/* Class = "IBUIViewController"; title = "Reset"; ObjectID = "jqr-eS-ueD"; */
+"jqr-eS-ueD.title" = "Reset";
+
+/* Class = "IBUINavigationItem"; title = "Somnia"; ObjectID = "jzb-mC-Htr"; */
+"jzb-mC-Htr.title" = "Somnia";
+
+/* Class = "IBUINavigationItem"; title = "Sign up"; ObjectID = "lb1-7d-Xiu"; */
+"lb1-7d-Xiu.title" = "Sign up";
+
+/* Class = "IBUIButton"; normalTitle = "Reset password"; ObjectID = "nH1-X1-f9z"; */
+"nH1-X1-f9z.normalTitle" = "Reset password";
+
+/* Class = "IBUITextField"; placeholder = "Password"; ObjectID = "uXH-yY-9fL"; */
+"uXH-yY-9fL.placeholder" = "Password";
