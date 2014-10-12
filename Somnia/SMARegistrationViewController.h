@@ -30,16 +30,6 @@ email field
 
 
 /**
- show alert message (pop up)
- */
-- (void) showAlert:(NSString *) title :(NSString *) message;
-
-/**
- email validator
- */
--(BOOL) validateEmail:(NSString*) emailString;
-
-/**
  start registration request to web server when registration button is pressed
  */
 - (IBAction)registerAction:(id)sender;

@@ -9,6 +9,7 @@
 #import "SMAResetPasswordViewController.h"
 #import "AFHTTPSessionManager.h"
 #import "SMAGlobal.h"
+#import "SMAFormHelper.h"
 
 @interface SMAResetPasswordViewController ()
 
@@ -19,6 +20,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    
+    self.emailTextField.delegate = self;
 }
 
 
@@ -26,7 +29,7 @@
     
     // a revoir
     
-    if (![self.emailTextField.text isEqualToString:@""] && [self validateEmail:self.emailTextField.text])
+    if (![self.emailTextField.text isEqualToString:@""] && [SMAFormHelper validateEmail:self.emailTextField.text])
     {
         
         UIActivityIndicatorView  *av = [UIActivityIndicatorView new];
@@ -58,19 +61,19 @@
                 {
                     [av stopAnimating];
                     button.hidden = NO;
-                    [self showAlert:NSLocalizedString(@"Resetting password success",nil) :NSLocalizedString(@"Now you can check your emails",nil)];
+                    [SMAFormHelper showAlert:NSLocalizedString(@"Resetting password success",nil) :NSLocalizedString(@"Now you can check your emails",nil)];
                     
                 }
                 else
                 {
-                    [self showAlert:NSLocalizedString(@"Error Resetting Password",nil) :NSLocalizedString(@"Email address doesn't exist",nil)];
+                    [SMAFormHelper showAlert:NSLocalizedString(@"Error Resetting Password",nil) :NSLocalizedString(@"Email address doesn't exist",nil)];
                     [av stopAnimating];
                     button.hidden = NO;
                 }
                 
             } failure:^(NSURLSessionDataTask *task, NSError *error) {
                 
-                [self showAlert:NSLocalizedString(@"Error Resetting Password",nil) :NSLocalizedString(@"Email address doesn't exist",nil)];
+                [SMAFormHelper showAlert:NSLocalizedString(@"Error Resetting Password",nil) :NSLocalizedString(@"Email address doesn't exist",nil)];
                 [av stopAnimating];
                 button.hidden = NO;
             }];
@@ -79,41 +82,20 @@
         
     }
     else
-        [self showAlert:NSLocalizedString(@"Error Field", nil) :NSLocalizedString(@"Please, fill in correctly all the fields", nil)];
+        [SMAFormHelper showAlert:NSLocalizedString(@"Error Field", nil) :NSLocalizedString(@"Please, fill in correctly all the fields", nil)];
 
     
 }
 
 
 /**
- email validator
+ hide keybord when return button is pressed
  */
--(BOOL) validateEmail:(NSString*) emailString
-{
-    NSString *regExPattern = @"^[A-Z0-9._%+-]+@[A-Z0-9.-]+\\.[A-Z]{2,4}$";
-    NSRegularExpression *regEx = [[NSRegularExpression alloc] initWithPattern:regExPattern options:NSRegularExpressionCaseInsensitive error:nil];
-    NSUInteger regExMatches = [regEx numberOfMatchesInString:emailString options:0 range:NSMakeRange(0, [emailString length])];
-    if (regExMatches == 0) {
-        return NO;
-    }
-    else
-        return YES;
+- (BOOL)textFieldShouldReturn:(UITextField *)textField {
+    [textField resignFirstResponder];
+    return NO;
 }
 
-
-
-/**
- show alert message (pop up)
- */
-- (void) showAlert:(NSString *) title :(NSString *) message
-{
-    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:title
-                                                    message:message
-                                                   delegate:nil
-                                          cancelButtonTitle:@"OK"
-                                          otherButtonTitles:nil];
-    [alert show];
-}
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

@@ -11,6 +11,7 @@
 #import "AFHTTPSessionManager.h"
 #import "SMAGlobal.h"
 #import "SMATabBarController.h"
+#import "SMAFormHelper.h"
 
 #import "UICKeyChainStore.h"
 
@@ -94,7 +95,7 @@
                 if ([html rangeOfString:@"Invalid" options:NSCaseInsensitiveSearch].length
                     > 0)
                 {
-                    [self showAlert:NSLocalizedString(@"Error authentication",nil) :NSLocalizedString(@"Invalid username or password",nil)];
+                    [SMAFormHelper showAlert:NSLocalizedString(@"Error authentication",nil) :NSLocalizedString(@"Invalid username or password",nil)];
                     [av stopAnimating];
                     button.hidden = NO;
                 }
@@ -114,14 +115,14 @@
                 
             } failure:^(NSURLSessionDataTask *task, NSError *error) {
              
-                [self showAlert:NSLocalizedString(@"Error login check",nil) :NSLocalizedString(@"No network connection",nil)];
+                [SMAFormHelper showAlert:NSLocalizedString(@"Error login check",nil) :NSLocalizedString(@"No network connection",nil)];
                 [av stopAnimating];
                 button.hidden = NO;
             }];
 
         } failure:^(NSURLSessionDataTask *task, NSError *error) {
             
-            [self showAlert:NSLocalizedString(@"Error Token",nil) :NSLocalizedString(@"No network connection",nil)];
+            [SMAFormHelper showAlert:NSLocalizedString(@"Error Token",nil) :NSLocalizedString(@"No network connection",nil)];
             [av stopAnimating];
             button.hidden = NO;
 
@@ -129,22 +130,10 @@
         
     }
     else
-        [self showAlert:NSLocalizedString(@"Error Field",nil) :NSLocalizedString(@"Please enter your username and password",nil)];
+        [SMAFormHelper showAlert:NSLocalizedString(@"Error Field",nil) :NSLocalizedString(@"Please enter your username and password",nil)];
     
 }
 
-/**
- show alert message (pop up)
- */
-- (void) showAlert:(NSString *) title :(NSString *) message
-{
-    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:title
-                                                    message:message
-                                                   delegate:nil
-                                          cancelButtonTitle:@"OK"
-                                          otherButtonTitles:nil];
-    [alert show];
-}
 
 
 - (void)didReceiveMemoryWarning

@@ -8,11 +8,13 @@
 
 #import <UIKit/UIKit.h>
 
-@interface SMAResetPasswordViewController : UIViewController
+@interface SMAResetPasswordViewController : UIViewController <UITextFieldDelegate>
 @property (weak, nonatomic) IBOutlet UITextField *emailTextField;
 
--(BOOL) validateEmail:(NSString*) emailString;
-- (void) showAlert:(NSString *) title :(NSString *) message;
 
+/**
+ hide keybord when return button is pressed
+ */
+- (BOOL)textFieldShouldReturn:(UITextField *)textField;
 
 @end

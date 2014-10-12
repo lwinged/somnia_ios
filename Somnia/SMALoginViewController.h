@@ -37,9 +37,6 @@
  */
 - (BOOL)textFieldShouldReturn:(UITextField *)textField;
 
-/**
- show alert message (pop up)
- */
-- (void) showAlert:(NSString *) title :(NSString *) message;
+
 
 @end

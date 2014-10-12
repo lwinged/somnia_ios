@@ -9,6 +9,7 @@
 #import "SMARegistrationViewController.h"
 #import "AFHTTPSessionManager.h"
 #import "SMAGlobal.h"
+#import "SMAFormHelper.h"
 
 
 @interface SMARegistrationViewController ()
@@ -49,7 +50,7 @@ hide keybord when return button is pressed
  */
 - (IBAction)registerAction:(id)sender
 {
-    if (![self.usernameTextField.text isEqualToString:@""] && ![self.passwordTextField.text isEqualToString:@""] && ![self.emailTextField.text isEqualToString:@""] && [self validateEmail:self.emailTextField.text])
+    if (![self.usernameTextField.text isEqualToString:@""] && ![self.passwordTextField.text isEqualToString:@""] && ![self.emailTextField.text isEqualToString:@""] && [SMAFormHelper validateEmail:self.emailTextField.text])
     {
         
         UIActivityIndicatorView  *av = [UIActivityIndicatorView new];
@@ -87,26 +88,26 @@ hide keybord when return button is pressed
                 {
                     [av stopAnimating];
                     button.hidden = NO;
-                    [self showAlert:NSLocalizedString(@"Registration success",nil) :NSLocalizedString(@"Now you can log in",nil)];
+                    [SMAFormHelper showAlert:NSLocalizedString(@"Registration success",nil) :NSLocalizedString(@"Now you can log in",nil)];
                     
                 }
                 else
                 {
-                    [self showAlert:NSLocalizedString(@"Error Registration",nil) :NSLocalizedString(@"Username already exist",nil)];
+                    [SMAFormHelper showAlert:NSLocalizedString(@"Error Registration",nil) :NSLocalizedString(@"Username already exist",nil)];
                     [av stopAnimating];
                     button.hidden = NO;
                 }
                 
             } failure:^(NSURLSessionDataTask *task, NSError *error) {
                 
-                [self showAlert:NSLocalizedString(@"Error Registration",nil) :NSLocalizedString(@"Username already exist",nil)];
+                [SMAFormHelper showAlert:NSLocalizedString(@"Error Registration",nil) :NSLocalizedString(@"Username already exist",nil)];
                 [av stopAnimating];
                 button.hidden = NO;
             }];
             
         } failure:^(NSURLSessionDataTask *task, NSError *error) {
             
-            [self showAlert:NSLocalizedString(@"Error Token", nil):NSLocalizedString(@"No network connection", nil)];
+            [SMAFormHelper showAlert:NSLocalizedString(@"Error Token", nil):NSLocalizedString(@"No network connection", nil)];
             [av stopAnimating];
             button.hidden = NO;
             
@@ -115,39 +116,12 @@ hide keybord when return button is pressed
         
     }
     else
-        [self showAlert:NSLocalizedString(@"Error Field", nil) :NSLocalizedString(@"Please, fill in correctly all the fields", nil)];
+        [SMAFormHelper showAlert:NSLocalizedString(@"Error Field", nil) :NSLocalizedString(@"Please, fill in correctly all the fields", nil)];
     
     
 }
 
 
-/**
- show alert message (pop up)
- */
-- (void) showAlert:(NSString *) title :(NSString *) message
-{
-    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:title
-                                                    message:message
-                                                   delegate:nil
-                                          cancelButtonTitle:@"OK"
-                                          otherButtonTitles:nil];
-    [alert show];
-}
-
-/**
- email validator
- */
--(BOOL) validateEmail:(NSString*) emailString
-{
-    NSString *regExPattern = @"^[A-Z0-9._%+-]+@[A-Z0-9.-]+\\.[A-Z]{2,4}$";
-    NSRegularExpression *regEx = [[NSRegularExpression alloc] initWithPattern:regExPattern options:NSRegularExpressionCaseInsensitive error:nil];
-    NSUInteger regExMatches = [regEx numberOfMatchesInString:emailString options:0 range:NSMakeRange(0, [emailString length])];
-    if (regExMatches == 0) {
-        return NO;
-    }
-    else
-        return YES;
-}
 
 - (void)didReceiveMemoryWarning
 {
@@ -155,15 +129,5 @@ hide keybord when return button is pressed
     // Dispose of any resources that can be recreated.
 }
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
-{
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end
