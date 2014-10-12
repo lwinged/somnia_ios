@@ -12,7 +12,7 @@
 #define Rgb2UIColor(r, g, b)  [UIColor colorWithRed:((r) / 255.0) green:((g) / 255.0) blue:((b) / 255.0) alpha:1.0]
 
 
-static NSString * _env = @"http://vm-0.lwinged.kd.io/Somnia/web/app.php";
+static NSString * _env = @"http://somnia.fr";
 
 
 
