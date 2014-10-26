@@ -32,6 +32,7 @@
 		EE95652C19604805008FA43E /* discover.png in Resources */ = {isa = PBXBuildFile; fileRef = EE95652919604805008FA43E /* discover.png */; };
 		EE95652D19604805008FA43E /* myprofile.png in Resources */ = {isa = PBXBuildFile; fileRef = EE95652A19604805008FA43E /* myprofile.png */; };
 		EED6930A19C5DD130038D6DA /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = EED6930C19C5DD130038D6DA /* Localizable.strings */; };
+		EEF6EBCB19FD5EB700171C25 /* SMADataHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = EEF6EBCA19FD5EB700171C25 /* SMADataHandler.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -45,7 +46,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		4A480D3BA9494FAB97FABA54 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
+		5DD5A806F97744E1F7789628 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
+		6C16F5B065A796C13C4757B9 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		B2594EA4742143F7AE484823 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		EE176EF9195EFE8000F4738C /* SMALoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SMALoginViewController.h; sourceTree = "<group>"; };
 		EE176EFA195EFE8000F4738C /* SMALoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SMALoginViewController.m; sourceTree = "<group>"; };
@@ -85,6 +87,8 @@
 		EED6930619C5DC5B0038D6DA /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		EED6930719C5DC5B0038D6DA /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		EED6930B19C5DD130038D6DA /* fr */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; lineEnding = 0; name = fr; path = fr.lproj/Localizable.strings; sourceTree = "<group>"; usesTabs = 0; };
+		EEF6EBC919FD5EB700171C25 /* SMADataHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SMADataHandler.h; sourceTree = "<group>"; };
+		EEF6EBCA19FD5EB700171C25 /* SMADataHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SMADataHandler.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -112,6 +116,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		D8023737830E9C6AEF84A632 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				6C16F5B065A796C13C4757B9 /* Pods.debug.xcconfig */,
+				5DD5A806F97744E1F7789628 /* Pods.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		EE27D82D1956E7EB00626285 = {
 			isa = PBXGroup;
 			children = (
@@ -119,7 +132,7 @@
 				EE27D85E1956E7EB00626285 /* SomniaTests */,
 				EE27D8381956E7EB00626285 /* Frameworks */,
 				EE27D8371956E7EB00626285 /* Products */,
-				4A480D3BA9494FAB97FABA54 /* Pods.xcconfig */,
+				D8023737830E9C6AEF84A632 /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -166,6 +179,8 @@
 				EE4280F419E18656000D414E /* SMAResetPasswordViewController.m */,
 				EE5D235719EAC39D00BBE6E2 /* SMAFormHelper.h */,
 				EE5D235819EAC39D00BBE6E2 /* SMAFormHelper.m */,
+				EEF6EBC919FD5EB700171C25 /* SMADataHandler.h */,
+				EEF6EBCA19FD5EB700171C25 /* SMADataHandler.m */,
 			);
 			path = Somnia;
 			sourceTree = "<group>";
@@ -340,7 +355,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Pods-resources.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -358,6 +373,7 @@
 				EE176EFB195EFE8000F4738C /* SMALoginViewController.m in Sources */,
 				EE176EFE195EFE9E00F4738C /* SMARegistrationViewController.m in Sources */,
 				EE5D235919EAC39D00BBE6E2 /* SMAFormHelper.m in Sources */,
+				EEF6EBCB19FD5EB700171C25 /* SMADataHandler.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -490,7 +506,7 @@
 		};
 		EE27D8691956E7EB00626285 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 4A480D3BA9494FAB97FABA54 /* Pods.xcconfig */;
+			baseConfigurationReference = 6C16F5B065A796C13C4757B9 /* Pods.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
@@ -506,7 +522,7 @@
 		};
 		EE27D86A1956E7EB00626285 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 4A480D3BA9494FAB97FABA54 /* Pods.xcconfig */;
+			baseConfigurationReference = 5DD5A806F97744E1F7789628 /* Pods.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;

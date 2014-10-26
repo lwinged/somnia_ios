@@ -20,14 +20,22 @@ PODS:
   - AFNetworking/UIKit (2.4.1):
     - AFNetworking/NSURLConnection
     - AFNetworking/NSURLSession
+  - AFOAuth2Client (0.1.1):
+    - AFNetworking (~> 2.0)
   - UICKeyChainStore (1.0.5)
 
 DEPENDENCIES:
   - AFNetworking (~> 2.2)
+  - AFOAuth2Client (from `https://github.com/mlwelles/AFOAuth2Client`)
   - UICKeyChainStore
+
+EXTERNAL SOURCES:
+  AFOAuth2Client:
+    :git: https://github.com/mlwelles/AFOAuth2Client
 
 SPEC CHECKSUMS:
   AFNetworking: 0aabc6fae66d6e5d039eeb21c315843c7aae51ab
+  AFOAuth2Client: 05536bd4175add72e7efcb6b749d4e9685ed02f7
   UICKeyChainStore: 4f9719600cc70025064e26f28f1210bcfc3b0c35
 
-COCOAPODS: 0.33.1
+COCOAPODS: 0.34.4

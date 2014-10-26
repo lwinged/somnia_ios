@@ -15,6 +15,8 @@
 
 #import "UICKeyChainStore.h"
 
+#import "SMADataHandler.h"
+
 @interface SMALoginViewController ()
 
 @end
@@ -47,7 +49,8 @@
     self.navigationController.navigationBar.tintColor = Rgb2UIColor(65, 171, 107);
 
     self.navigationController.navigationBar.titleTextAttributes = @{NSForegroundColorAttributeName : Rgb2UIColor(65, 171, 107)};
-
+    
+    [SMADataHandler getPlatformAccessToken];
 }
 
 /**
