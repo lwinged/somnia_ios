@@ -26,7 +26,6 @@
 
 @property (weak, nonatomic) IBOutlet UITextField *passwordTextField;
 
-
 /**
  start login request to web server when login button is pressed
  */

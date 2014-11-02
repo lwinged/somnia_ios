@@ -15,7 +15,6 @@
 
 #import "UICKeyChainStore.h"
 
-#import "SMADataHandler.h"
 
 @interface SMALoginViewController ()
 
@@ -50,8 +49,8 @@
 
     self.navigationController.navigationBar.titleTextAttributes = @{NSForegroundColorAttributeName : Rgb2UIColor(65, 171, 107)};
     
-    [SMADataHandler getPlatformAccessToken];
 }
+
 
 /**
  hide keybord when return button is pressed
@@ -66,7 +65,8 @@
  start login request to web server when login button is pressed
  */
 - (IBAction)loginAction:(id)sender
-{
+{    
+    
     if (![self.usernameTextField.text isEqualToString:@""] && ![self.passwordTextField.text isEqualToString:@""])
     {
         

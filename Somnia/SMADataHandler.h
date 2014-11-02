@@ -7,13 +7,27 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "AFOAuth2Client.h"
 
 @interface SMADataHandler : NSObject
 
-+ (void) getPlatformAccessToken;
-+ (void) getUserAccessToken:(NSString *)login :(NSString *)password;
+typedef enum actionCode
+{
+    NONE = 0,
+    CANSIGNUP,
+    ERRORTOKEN,
+    ERRORREGIRSTER,
+    SUCCESSREGISTER,
+} eActionCode;
 
-+ (void) signUpUser:(NSString *) login :(NSString *) password :(NSString *)accessToken;
+@property (nonatomic, strong) NSString* clientID;
+@property (nonatomic, strong) NSString* clientSecret;
+@property (nonatomic, strong) AFOAuth2Client * oauthClient;
+@property (nonatomic, strong) AFHTTPRequestOperationManager * manager;
+@property (nonatomic, assign) eActionCode status;
 
+- (void) getPlatformAccessToken;
+- (void) getUserAccessToken:(NSString *)login :(NSString *)password;
+- (void) signUpUser:(NSString *) email :(NSString *) login :(NSString *) password;
 
 @end

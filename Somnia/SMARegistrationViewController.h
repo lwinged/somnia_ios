@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
+#import "SMADataHandler.h"
 
 /**
  RegsitrationViewController - sign up form
@@ -27,6 +28,9 @@ email field
  password field
  */
 @property (weak, nonatomic) IBOutlet UITextField *passwordTextField;
+
+
+@property (nonatomic, strong) SMADataHandler * dataHandler;
 
 
 /**
