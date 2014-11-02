@@ -82,7 +82,7 @@ hide keybord when return button is pressed
 - (void) observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context
 {
     switch (self.dataHandler.status) {
-        case CANSIGNUP:
+        case SIGNUP:
             [self.dataHandler signUpUser:self.emailTextField.text :self.usernameTextField.text :self.passwordTextField.text];
             break;
         case SUCCESSREGISTER:

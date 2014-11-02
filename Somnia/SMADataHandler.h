@@ -14,8 +14,10 @@
 typedef enum actionCode
 {
     NONE = 0,
-    CANSIGNUP,
+    SIGNUP,
+    LOGGED,
     ERRORTOKEN,
+    ERRORLOGGIN,
     ERRORREGIRSTER,
     SUCCESSREGISTER,
 } eActionCode;

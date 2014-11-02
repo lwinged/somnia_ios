@@ -8,6 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
+#import "SMADataHandler.h"
+
 /**
  LoginViewController - login view
  */
@@ -25,6 +27,10 @@
  */
 
 @property (weak, nonatomic) IBOutlet UITextField *passwordTextField;
+
+
+@property (nonatomic, strong) SMADataHandler * dataHandler;
+
 
 /**
  start login request to web server when login button is pressed

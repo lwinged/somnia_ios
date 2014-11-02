@@ -52,7 +52,7 @@
 
     
     webViewController = self.viewControllers[2];
-    [webViewController setUrl:[NSString stringWithFormat:@"%@/%@", _env, self.username]];
+    [webViewController setUrl:[NSString stringWithFormat:@"%@/user/%@", _env, self.username]];
     item = self.tabBar.items[2];
     item.title = NSLocalizedString(@"My profile", nil);
     item.image = [UIImage imageNamed:@"myprofile.png"];

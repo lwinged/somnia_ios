@@ -39,7 +39,7 @@
         
         [AFOAuthCredential storeCredential:credential withIdentifier:self.oauthClient.serviceProviderIdentifier];
         
-        self.status = CANSIGNUP;
+        self.status = SIGNUP;
         
     } failure:^(NSError *error) {
         
@@ -87,14 +87,24 @@
     
     [self.oauthClient authenticateUsingOAuthWithURLString:[getTokenURL absoluteString] parameters:params success:^(AFOAuthCredential *credential) {
         
-        NSLog(@"token %@ ", credential.accessToken);
-        [AFOAuthCredential storeCredential:credential withIdentifier:self.oauthClient.serviceProviderIdentifier];
+//        NSLog(@"token %@ ", credential.accessToken);
+        
+        NSLog(@"%@", credential);
+        
+        if (!credential)
+            self.status = ERRORLOGGIN;
+        else
+        {
+            [AFOAuthCredential storeCredential:credential withIdentifier:self.oauthClient.serviceProviderIdentifier];
+            self.status = LOGGED;
+        }
         
         
         
     } failure:^(NSError *error) {
         
-        NSLog(@"Error: %@", error);
+//        NSLog(@"Error: %@", error);
+        self.status = ERRORTOKEN;
         
     }];
 }

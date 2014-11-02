@@ -22,6 +22,9 @@
 
 @implementation SMALoginViewController
 
+static UIActivityIndicatorView  *av;
+static UIButton * button;
+
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
@@ -49,6 +52,9 @@
 
     self.navigationController.navigationBar.titleTextAttributes = @{NSForegroundColorAttributeName : Rgb2UIColor(65, 171, 107)};
     
+    self.dataHandler = [SMADataHandler new];
+    
+    [self.dataHandler addObserver:self forKeyPath:@"status" options:NSKeyValueObservingOptionOld context:nil];
 }
 
 
@@ -70,66 +76,16 @@
     if (![self.usernameTextField.text isEqualToString:@""] && ![self.passwordTextField.text isEqualToString:@""])
     {
         
-        UIActivityIndicatorView  *av = [UIActivityIndicatorView new];
+        av = [UIActivityIndicatorView new];
         av.color = Rgb2UIColor(65, 171, 107);
         
-        UIButton * button = (UIButton *)sender;
+        button = (UIButton *)sender;
         [av setCenter:button.center];
         button.hidden = YES;
         [self.view addSubview:av];
         [av startAnimating];
-        
-        AFHTTPSessionManager * manager = [AFHTTPSessionManager manager];
-        
-        [manager GET:[NSString stringWithFormat:@"%@/token/authenticate", _env] parameters:nil success:^(NSURLSessionDataTask *task, id responseObject) {
-            
-            NSDictionary *jsonObject = responseObject;
-            
-            NSDictionary * parameters = @{@"_csrf_token": jsonObject[@"token"], @"_username":self.usernameTextField.text, @"_password":self.passwordTextField.text};
-            
-            AFHTTPResponseSerializer *requestSerializer = [AFHTTPResponseSerializer serializer];
-            
-            [manager setResponseSerializer:requestSerializer];
-            
-            [manager POST:[NSString stringWithFormat:@"%@/login_check", _env] parameters:parameters success:^(NSURLSessionDataTask *task, id responseObject) {
-                
-                NSString *html = [[NSString alloc] initWithData:responseObject encoding:NSUTF8StringEncoding];
-
-                if ([html rangeOfString:@"Invalid" options:NSCaseInsensitiveSearch].length
-                    > 0)
-                {
-                    [SMAFormHelper showAlert:NSLocalizedString(@"Error authentication",nil) :NSLocalizedString(@"Invalid username or password",nil)];
-                    [av stopAnimating];
-                    button.hidden = NO;
-                }
-                else
-                {
-                    
-                    UICKeyChainStore *store = [UICKeyChainStore keyChainStore];
-                    [store setString:self.usernameTextField.text forKey:@"username"];
-                    [store setString:self.passwordTextField.text forKey:@"password"];
-                    [store synchronize];
-                    
-                    
-                    SMATabBarController * tabbar = [self.storyboard instantiateViewControllerWithIdentifier:@"tabbarcontroller"];
-                    tabbar.username = self.usernameTextField.text;
-                    [self presentViewController:tabbar animated:YES completion: nil];
-                }
-                
-            } failure:^(NSURLSessionDataTask *task, NSError *error) {
-             
-                [SMAFormHelper showAlert:NSLocalizedString(@"Error login check",nil) :NSLocalizedString(@"No network connection",nil)];
-                [av stopAnimating];
-                button.hidden = NO;
-            }];
-
-        } failure:^(NSURLSessionDataTask *task, NSError *error) {
-            
-            [SMAFormHelper showAlert:NSLocalizedString(@"Error Token",nil) :NSLocalizedString(@"No network connection",nil)];
-            [av stopAnimating];
-            button.hidden = NO;
-
-        }];
+     
+        [self.dataHandler getUserAccessToken:self.usernameTextField.text :self.passwordTextField.text];
         
     }
     else
@@ -139,11 +95,120 @@
 
 
 
+- (void) observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context
+{
+    switch (self.dataHandler.status) {
+        case LOGGED:
+        {
+         
+            UICKeyChainStore *store = [UICKeyChainStore keyChainStore];
+            [store setString:self.usernameTextField.text forKey:@"username"];
+            [store setString:self.passwordTextField.text forKey:@"password"];
+            [store synchronize];
+
+
+            SMATabBarController * tabbar = [self.storyboard instantiateViewControllerWithIdentifier:@"tabbarcontroller"];
+            tabbar.username = self.usernameTextField.text;
+            [self presentViewController:tabbar animated:YES completion: nil];
+
+            break;
+        }
+        case ERRORTOKEN:
+            [SMAFormHelper showAlertAndStopAnimation:NSLocalizedString(@"Error Token", nil):NSLocalizedString(@"No network connection", nil) :av :button];
+            break;
+        case ERRORREGIRSTER:
+            [SMAFormHelper showAlertAndStopAnimation:NSLocalizedString(@"Error Registration",nil) :NSLocalizedString(@"Username already exist",nil) :av :button];
+            break;
+        default:
+            break;
+    }
+    
+}
+
+- (void)viewDidDisappear:(BOOL)animated
+{
+    [self.dataHandler removeObserver:self forKeyPath:@"status"];
+}
+
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+
+
+//- (IBAction)loginAction:(id)sender
+//{
+//    
+//    if (![self.usernameTextField.text isEqualToString:@""] && ![self.passwordTextField.text isEqualToString:@""])
+//    {
+//        
+//        UIActivityIndicatorView  *av = [UIActivityIndicatorView new];
+//        av.color = Rgb2UIColor(65, 171, 107);
+//        
+//        UIButton * button = (UIButton *)sender;
+//        [av setCenter:button.center];
+//        button.hidden = YES;
+//        [self.view addSubview:av];
+//        [av startAnimating];
+//        
+//        AFHTTPSessionManager * manager = [AFHTTPSessionManager manager];
+//        
+//        [manager GET:[NSString stringWithFormat:@"%@/token/authenticate", _env] parameters:nil success:^(NSURLSessionDataTask *task, id responseObject) {
+//            
+//            NSDictionary *jsonObject = responseObject;
+//            
+//            NSDictionary * parameters = @{@"_csrf_token": jsonObject[@"token"], @"_username":self.usernameTextField.text, @"_password":self.passwordTextField.text};
+//            
+//            AFHTTPResponseSerializer *requestSerializer = [AFHTTPResponseSerializer serializer];
+//            
+//            [manager setResponseSerializer:requestSerializer];
+//            
+//            [manager POST:[NSString stringWithFormat:@"%@/login_check", _env] parameters:parameters success:^(NSURLSessionDataTask *task, id responseObject) {
+//                
+//                NSString *html = [[NSString alloc] initWithData:responseObject encoding:NSUTF8StringEncoding];
+//                
+//                if ([html rangeOfString:@"Invalid" options:NSCaseInsensitiveSearch].length
+//                    > 0)
+//                {
+//                    [SMAFormHelper showAlert:NSLocalizedString(@"Error authentication",nil) :NSLocalizedString(@"Invalid username or password",nil)];
+//                    [av stopAnimating];
+//                    button.hidden = NO;
+//                }
+//                else
+//                {
+//                    
+//                    UICKeyChainStore *store = [UICKeyChainStore keyChainStore];
+//                    [store setString:self.usernameTextField.text forKey:@"username"];
+//                    [store setString:self.passwordTextField.text forKey:@"password"];
+//                    [store synchronize];
+//                    
+//                    
+//                    SMATabBarController * tabbar = [self.storyboard instantiateViewControllerWithIdentifier:@"tabbarcontroller"];
+//                    tabbar.username = self.usernameTextField.text;
+//                    [self presentViewController:tabbar animated:YES completion: nil];
+//                }
+//                
+//            } failure:^(NSURLSessionDataTask *task, NSError *error) {
+//                
+//                [SMAFormHelper showAlert:NSLocalizedString(@"Error login check",nil) :NSLocalizedString(@"No network connection",nil)];
+//                [av stopAnimating];
+//                button.hidden = NO;
+//            }];
+//            
+//        } failure:^(NSURLSessionDataTask *task, NSError *error) {
+//            
+//            [SMAFormHelper showAlert:NSLocalizedString(@"Error Token",nil) :NSLocalizedString(@"No network connection",nil)];
+//            [av stopAnimating];
+//            button.hidden = NO;
+//            
+//        }];
+//        
+//    }
+//    else
+//        [SMAFormHelper showAlert:NSLocalizedString(@"Error Field",nil) :NSLocalizedString(@"Please enter your username and password",nil)];
+//    
+//}
 
 
 @end
