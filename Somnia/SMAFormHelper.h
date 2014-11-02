@@ -21,5 +21,7 @@
  */
 +(BOOL) validateEmail:(NSString*) emailString;
 
++ (void) showAlertAndStopAnimation:(NSString *)title :(NSString *)message  :(UIActivityIndicatorView  *)av :(UIButton *) button;
+
 
 @end

@@ -25,6 +25,12 @@
     [alert show];
 }
 
++ (void) showAlertAndStopAnimation:(NSString *)title :(NSString *)message  :(UIActivityIndicatorView  *)av :(UIButton *) button
+{
+    [self showAlert:title :message];
+    [av stopAnimating];
+    button.hidden = NO;
+}
 
 /**
  email validator

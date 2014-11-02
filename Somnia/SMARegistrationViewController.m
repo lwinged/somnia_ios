@@ -86,27 +86,14 @@ hide keybord when return button is pressed
             [self.dataHandler signUpUser:self.emailTextField.text :self.usernameTextField.text :self.passwordTextField.text];
             break;
         case SUCCESSREGISTER:
-        {
-            [SMAFormHelper showAlert:NSLocalizedString(@"Registration success",nil) :NSLocalizedString(@"Now you can log in",nil)];
-            [av stopAnimating];
-            button.hidden = NO;
+            [SMAFormHelper showAlertAndStopAnimation:NSLocalizedString(@"Registration success",nil) :NSLocalizedString(@"Now you can log in",nil) :av :button];
             break;
-        }
         case ERRORTOKEN:
-        {
-           [SMAFormHelper showAlert:NSLocalizedString(@"Error Token", nil):NSLocalizedString(@"No network connection", nil)];
-           [av stopAnimating];
-            button.hidden = NO;
+           [SMAFormHelper showAlertAndStopAnimation:NSLocalizedString(@"Error Token", nil):NSLocalizedString(@"No network connection", nil) :av :button];
             break;
-        }
         case ERRORREGIRSTER:
-        {
-            [SMAFormHelper showAlert:NSLocalizedString(@"Error Registration",nil) :NSLocalizedString(@"Username already exist",nil)];
-            [av stopAnimating];
-            button.hidden = NO;
+            [SMAFormHelper showAlertAndStopAnimation:NSLocalizedString(@"Error Registration",nil) :NSLocalizedString(@"Username already exist",nil) :av :button];
             break;
-        }
-            
         default:
             break;
     }
