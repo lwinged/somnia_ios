@@ -43,7 +43,6 @@
         
     } failure:^(NSError *error) {
         
-//        NSLog(@"Error: %@", error);
         self.status = ERRORTOKEN;
         
     }];
@@ -62,7 +61,6 @@
         NSDictionary *params = @{@"access_token" : credential.accessToken, @"email" : email, @"username" : login, @"password" : password};
         
         [self.manager POST:[_env stringByAppendingString:@"/api/v1/registerNewUser"] parameters:params success:^(AFHTTPRequestOperation *operation, id responseObject) {
-//            NSLog(@"JSON: %@", responseObject);
             
             if (responseObject[@"success"])
                 self.status = SUCCESSREGISTER;
@@ -71,7 +69,6 @@
 
         } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
             
-//            NSLog(@"Error: %@", error);
             self.status = ERRORTOKEN;
             
         }];
@@ -87,28 +84,19 @@
     
     [self.oauthClient authenticateUsingOAuthWithURLString:[getTokenURL absoluteString] parameters:params success:^(AFOAuthCredential *credential) {
         
-//        NSLog(@"token %@ ", credential.accessToken);
-        
-        NSLog(@"%@", credential);
-        
-        if (!credential)
-            self.status = ERRORLOGGIN;
-        else
-        {
             [AFOAuthCredential storeCredential:credential withIdentifier:self.oauthClient.serviceProviderIdentifier];
-            self.status = LOGGED;
-        }
-        
-        
+            self.status = LOGIN;
         
     } failure:^(NSError *error) {
         
-//        NSLog(@"Error: %@", error);
-        self.status = ERRORTOKEN;
+        if (error.userInfo[@"_kCFStreamErrorCodeKey"])
+            self.status = ERRORTOKEN;
+        else
+            self.status = ERRORLOGIN;
+        
         
     }];
 }
-
 
 
 @end

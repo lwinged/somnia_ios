@@ -37,7 +37,7 @@
     self.tabBar.tintColor = Rgb2UIColor(65, 171, 107);
     
     SMAWebViewController * webViewController = self.viewControllers[0];
-    [webViewController setUrl:[NSString stringWithFormat:@"%@/discover/goals", _env]];
+    [webViewController setUrl:[NSString stringWithFormat:@"%@/api/v1/connectByAccessToken?&access_token=%@&target=Somnia_Discover_Goals", _env, self.accessToken]];
     UITabBarItem * item = self.tabBar.items[0];
     item.title = NSLocalizedString(@"Discover", nil);
     item.image = [UIImage imageNamed:@"discover.png"];
@@ -67,15 +67,6 @@
     // Dispose of any resources that can be recreated.
 }
 
-/*
-#pragma mark - Navigation
 
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
-{
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end

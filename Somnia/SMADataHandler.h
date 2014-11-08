@@ -15,9 +15,10 @@ typedef enum actionCode
 {
     NONE = 0,
     SIGNUP,
-    LOGGED,
+    LOGIN,
+    SUCCESSLOGIN,
     ERRORTOKEN,
-    ERRORLOGGIN,
+    ERRORLOGIN,
     ERRORREGIRSTER,
     SUCCESSREGISTER,
 } eActionCode;
@@ -31,5 +32,6 @@ typedef enum actionCode
 - (void) getPlatformAccessToken;
 - (void) getUserAccessToken:(NSString *)login :(NSString *)password;
 - (void) signUpUser:(NSString *) email :(NSString *) login :(NSString *) password;
+
 
 @end

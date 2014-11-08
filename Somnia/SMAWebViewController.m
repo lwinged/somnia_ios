@@ -28,12 +28,9 @@ when view did load the webview starts the request (see url)
     
     self.webView.scrollView.contentInset = UIEdgeInsetsMake(0,0,self.tabBarController.tabBar.frame.size.height,0);
 
-    
     NSURL *url = [NSURL URLWithString:self.url];
-
     NSURLRequest *requestObj = [NSURLRequest requestWithURL:url];
     [self.webView loadRequest:requestObj];
-    
 }
 
 /**
