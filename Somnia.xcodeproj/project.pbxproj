@@ -25,7 +25,6 @@
 		EE27D8631956E7EB00626285 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = EE27D8611956E7EB00626285 /* InfoPlist.strings */; };
 		EE27D8651956E7EB00626285 /* SomniaTests.m in Sources */ = {isa = PBXBuildFile; fileRef = EE27D8641956E7EB00626285 /* SomniaTests.m */; };
 		EE27D8701956FFA500626285 /* SMATabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = EE27D86F1956FFA500626285 /* SMATabBarController.m */; };
-		EE4280F519E18656000D414E /* SMAResetPasswordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EE4280F419E18656000D414E /* SMAResetPasswordViewController.m */; };
 		EE5D235919EAC39D00BBE6E2 /* SMAFormHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = EE5D235819EAC39D00BBE6E2 /* SMAFormHelper.m */; };
 		EE95651F19601B5C008FA43E /* logo2x.png in Resources */ = {isa = PBXBuildFile; fileRef = EE95651E19601B5C008FA43E /* logo2x.png */; };
 		EE95652B19604805008FA43E /* contribute.png in Resources */ = {isa = PBXBuildFile; fileRef = EE95652819604805008FA43E /* contribute.png */; };
@@ -74,8 +73,6 @@
 		EE27D8641956E7EB00626285 /* SomniaTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SomniaTests.m; sourceTree = "<group>"; };
 		EE27D86E1956FFA500626285 /* SMATabBarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SMATabBarController.h; sourceTree = "<group>"; };
 		EE27D86F1956FFA500626285 /* SMATabBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SMATabBarController.m; sourceTree = "<group>"; };
-		EE4280F319E18656000D414E /* SMAResetPasswordViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SMAResetPasswordViewController.h; sourceTree = "<group>"; };
-		EE4280F419E18656000D414E /* SMAResetPasswordViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SMAResetPasswordViewController.m; sourceTree = "<group>"; };
 		EE4280FA19E18FCF000D414E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		EE4280FB19E18FD6000D414E /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/Main.strings; sourceTree = "<group>"; };
 		EE5D235719EAC39D00BBE6E2 /* SMAFormHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SMAFormHelper.h; sourceTree = "<group>"; };
@@ -175,8 +172,6 @@
 				EE176EFC195EFE9E00F4738C /* SMARegistrationViewController.h */,
 				EE176EFD195EFE9E00F4738C /* SMARegistrationViewController.m */,
 				EE176EFF195F096500F4738C /* SMAGlobal.h */,
-				EE4280F319E18656000D414E /* SMAResetPasswordViewController.h */,
-				EE4280F419E18656000D414E /* SMAResetPasswordViewController.m */,
 				EE5D235719EAC39D00BBE6E2 /* SMAFormHelper.h */,
 				EE5D235819EAC39D00BBE6E2 /* SMAFormHelper.m */,
 				EEF6EBC919FD5EB700171C25 /* SMADataHandler.h */,
@@ -368,7 +363,6 @@
 				EE27D84A1956E7EB00626285 /* SMAAppDelegate.m in Sources */,
 				EE27D8701956FFA500626285 /* SMATabBarController.m in Sources */,
 				EE27D8461956E7EB00626285 /* main.m in Sources */,
-				EE4280F519E18656000D414E /* SMAResetPasswordViewController.m in Sources */,
 				EE27D8501956E7EB00626285 /* SMAWebViewController.m in Sources */,
 				EE176EFB195EFE8000F4738C /* SMALoginViewController.m in Sources */,
 				EE176EFE195EFE9E00F4738C /* SMARegistrationViewController.m in Sources */,
