@@ -40,9 +40,6 @@ static UIButton * button;
     self.passwordTextField.delegate = self;
     
     self.dataHandler = [SMADataHandler new];
-    
-    [self.dataHandler addObserver:self forKeyPath:@"status" options:NSKeyValueObservingOptionOld context:nil];
-    
 }
 /**
 hide keybord when return button is pressed
@@ -98,6 +95,11 @@ hide keybord when return button is pressed
             break;
     }
     
+}
+
+- (void) viewDidAppear:(BOOL)animated
+{
+    [self.dataHandler addObserver:self forKeyPath:@"status" options:NSKeyValueObservingOptionOld context:nil];
 }
 
 - (void)viewDidDisappear:(BOOL)animated

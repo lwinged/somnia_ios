@@ -62,6 +62,8 @@
         
         [self.manager POST:[_env stringByAppendingString:@"/api/v1/registerNewUser"] parameters:params success:^(AFHTTPRequestOperation *operation, id responseObject) {
             
+            NSLog(@"debug -> %@", responseObject);
+            
             if (responseObject[@"success"])
                 self.status = SUCCESSREGISTER;
             else

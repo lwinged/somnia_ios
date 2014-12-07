@@ -53,8 +53,6 @@ static UIButton * button;
     self.navigationController.navigationBar.titleTextAttributes = @{NSForegroundColorAttributeName : Rgb2UIColor(65, 171, 107)};
     
     self.dataHandler = [SMADataHandler new];
-    
-    [self.dataHandler addObserver:self forKeyPath:@"status" options:NSKeyValueObservingOptionOld context:nil];
 }
 
 
@@ -126,6 +124,12 @@ static UIButton * button;
             break;
     }
     
+}
+
+- (void) viewDidAppear:(BOOL)animated
+{
+    [self.dataHandler addObserver:self forKeyPath:@"status" options:NSKeyValueObservingOptionOld context:nil];
+
 }
 
 - (void)viewDidDisappear:(BOOL)animated
