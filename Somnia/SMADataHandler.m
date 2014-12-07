@@ -53,17 +53,10 @@
 {
     AFOAuthCredential* credential = [AFOAuthCredential retrieveCredentialWithIdentifier:self.oauthClient.serviceProviderIdentifier];
     
-    if (credential.isExpired == TRUE)
-        [self getPlatformAccessToken];
-    else
-    {
-        
         NSDictionary *params = @{@"access_token" : credential.accessToken, @"email" : email, @"username" : login, @"password" : password};
         
         [self.manager POST:[_env stringByAppendingString:@"/api/v1/registerNewUser"] parameters:params success:^(AFHTTPRequestOperation *operation, id responseObject) {
-            
-            NSLog(@"debug -> %@", responseObject);
-            
+                        
             if (responseObject[@"success"])
                 self.status = SUCCESSREGISTER;
             else
@@ -74,7 +67,6 @@
             self.status = ERRORTOKEN;
             
         }];
-    }
     
 }
 

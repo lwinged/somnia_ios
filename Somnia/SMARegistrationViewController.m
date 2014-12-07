@@ -66,7 +66,7 @@ hide keybord when return button is pressed
         [self.view addSubview:av];
         [av startAnimating];
         
-        [self.dataHandler signUpUser:self.emailTextField.text :self.usernameTextField.text :self.passwordTextField.text];
+        [self.dataHandler getPlatformAccessToken];
         
     }
     else
